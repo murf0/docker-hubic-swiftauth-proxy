@@ -11,7 +11,7 @@ var fs = require('fs'),
     
 var credentials = {
   key: fs.readFileSync('server.key'),
-  cert: fs.readFileSync('server.crt'')
+  cert: fs.readFileSync('server.crt')
 };
 
 if (typeof(process.env.APP_KEY) == 'undefined' ||
@@ -127,7 +127,7 @@ var httpListener = function (req, res) {
           "\tUser: hubic\n" +
           "\tPassword: " + refresh_token + "\n\n" +
           "Example if you use the Swift cli client:\n" +
-          "\t$ swift -A " + process.env.BASE_URL + "auth/v1.0 -U hubic -K " +
+          "\t$ swift -A " + process.env.BASE_URL + "auth/v1.0 --insecure -U hubic -K " +
           refresh_token + "\n"
         );
       }
@@ -178,5 +178,5 @@ var httpListener = function (req, res) {
   }
 }
 
-var srv = tls.createServer(credentials,httpListener);
+var srv = https.createServer(credentials,httpListener);
 srv.listen(process.env.PORT || 8080);
