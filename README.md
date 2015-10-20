@@ -1,4 +1,26 @@
-# Node hubiC Swift Authentication
+# Node hubiC Swift Authentication - Dockerized
+
+
+Based on: https://github.com/gierschv/node-hubic-swiftauth
+
+Added:
+Dockeriziation. 
+SSL support (Selfsigned idiot Certificate included)
+
+### How to run:
+Build image:
+docker build -t hubicswiftauth .
+Run it:
+docker run -it --rm \
+-e APP_KEY=\
+-e APP_SECRET= \
+-e BASE_URL=/ \
+-e HOST=\
+-p 8080:8080 \
+--name hubicswiftauth hubicswiftauth
+
+
+
 
 **This script is written for my personal usage, is unofficial and consequently
 not maintained by OVH.**
