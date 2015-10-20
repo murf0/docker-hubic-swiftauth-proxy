@@ -2,10 +2,14 @@
 
 var fs = require('fs'),
     crypto = require('crypto'),
+    fs = require("fs"),
     http = require('http'),
     https = require('https'),
     url = require('url'),
     querystring = require('querystring');
+var privateKey = fs.readFileSync('server.key').toString();
+var certificate = fs.readFileSync('server.crt').toString();
+var credentials = crypto.createCredentials({key: privateKey, cert: certificate});
 
 if (typeof(process.env.APP_KEY) == 'undefined' ||
     typeof(process.env.APP_SECRET) == 'undefined' ||
@@ -172,4 +176,6 @@ var httpListener = function (req, res) {
 }
 
 var srv = http.createServer(httpListener);
-srv.listen(process.env.PORT || 8080, process.env.HOST);
+srv.setSecure(credentials);
+
+srv.listen(process.env.PORT || 8080);
