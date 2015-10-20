@@ -7,14 +7,14 @@ Dockeriziation.
 Added SSL support.
 Generates SSL-certificats on start. (Prints sha256 fingerprint, verify your connection)
 
-### How to run:
-* Build image:
+## How to run:
+### Build image:
 ```
 git clone https://github.com/murf0/node-hubic-swiftauth.git
 docker build -t hubicswiftauth .
 ```
 
-* Run it:
+### Run it:
 ```
 docker run -it --rm \
 -e APP_KEY=\
@@ -24,23 +24,7 @@ docker run -it --rm \
 -p 8080:8080 \
 --name hubicswiftauth hubicswiftauth
 ```
-
-## Cyberduck
-[Run the V1 auth file](https://svn.cyberduck.ch/trunk/profiles/Openstack%20Swift%20(v1).cyberduckprofile) and select Swift v1 as connection.
-1. Paste the Auth URL into server. (This resets your selection) 
-2. select Openstack swift v1 again. Port is now reset, If not using 443 Change this.
-3. Set username to hubic. -> Connect
-4. Input key and connect
-
-
-**This script is written for my personal usage, is unofficial and consequently
-not maintained by OVH.**
-
-This script provides a simple Node.js HTTP server responding to a standard
-OpenStack Swift authentication request (v1.0) using the hubic OAuth API.
-Tested with *Swift CLI* and *Cyberduck*.
-
-### Usage
+## Usage
 
 *  Create a hubiC application on hubic.com (My account > Your applications).
 
@@ -60,9 +44,16 @@ Now you can use the Swift v1 API using these credentials:
 	Endpoint: https://example.com/
 	User: hubic
 	Password: my-token
-
 Example if you use the swift cli client:
 	$ swift -A https://example.com/auth/v1.0 -U hubic -K my-token
 ```
-
 * You can now use these credentials until you revoke them.
+
+## Tested Applications
+### Cyberduck
+
+1. [Run the V1 auth file](https://svn.cyberduck.ch/trunk/profiles/Openstack%20Swift%20(v1).cyberduckprofile) and select Swift v1 as connection.
+2. Paste the Auth URL into server. (This resets your selection) 
+3. select Openstack swift v1 again. Port is now reset, If not using 443 Change this.
+4. Set username to hubic. -> Connect
+5. Input key and connect
