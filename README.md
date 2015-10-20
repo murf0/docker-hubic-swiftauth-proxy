@@ -8,9 +8,13 @@ Dockeriziation.
 SSL support (Selfsigned idiot Certificate included)
 
 ### How to run:
-Build image:
+*Build image:
+```
 docker build -t hubicswiftauth .
-Run it:
+```
+
+*Run it:
+```
 docker run -it --rm \
 -e APP_KEY=\
 -e APP_SECRET= \
@@ -18,7 +22,7 @@ docker run -it --rm \
 -e HOST=\
 -p 8080:8080 \
 --name hubicswiftauth hubicswiftauth
-
+```
 
 
 
