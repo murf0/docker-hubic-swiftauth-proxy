@@ -1,4 +1,4 @@
-# Nodejs hubiC Swift Authentication - Dockerized
+# Nodejs hubiC Swift Authentication Proxy - Dockerized
 Based on: [https://github.com/gierschv/node-hubic-swiftauth]
 
 **This script is written for my personal usage, is unofficial and consequently not maintained by OVH.**
@@ -11,8 +11,8 @@ Based on: [https://github.com/gierschv/node-hubic-swiftauth]
 ## How to run:
 ### Build image:
 ```
-git clone https://github.com/murf0/node-hubic-swiftauth.git
-docker build -t hubicswiftauth node-hubic-swiftauth
+git https://github.com/murf0/docker-hubic-swiftauth-proxy.git
+docker build -t hubicswiftproxy docker-hubic-swiftauth-proxy
 ```
 
 ### Run it:
@@ -22,7 +22,7 @@ docker run\
 -e APP_SECRET=<Secret Client> \
 -e BASE_URL=<Redirection domain>/ \
 -p <PORT In BASE_URL>:8080 \
---name hubicswiftauth hubicswiftauth
+--name hubicswiftauth hubicswiftproxy
 ```
 
 ## Usage

@@ -178,5 +178,9 @@ var httpListener = function (req, res) {
   }
 }
 
-var srv = https.createServer(credentials,httpListener);
+if (process.env.HTTP == "true") {
+	var srv = https.createServer(credentials,httpListener);
+} else {
+	var srv = http.createServer(httpListener);
+}
 srv.listen(process.env.PORT || 8080);
