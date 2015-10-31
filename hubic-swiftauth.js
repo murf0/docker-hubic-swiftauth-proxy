@@ -17,11 +17,13 @@ fs.exists("SSL", function(exists) {
       key: fs.readFileSync('SSL/server.key'),
       cert: fs.readFileSync('SSL/server.crt')
     };
+    console.log("Using Provided SSL\n");
   } else {
     var credentials = {
       key: fs.readFileSync('server.key'),
       cert: fs.readFileSync('server.crt')
     };
+    console.log("Using Generated SSL\n");
   }
 });
 
