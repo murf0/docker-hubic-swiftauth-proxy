@@ -11,7 +11,7 @@ var fs = require('fs'),
 
 
 //Ugly. I hate myself
-fs.exists("SSL", function(exists) {
+fs.exists("SSL/server.key", function(exists) {
   if (exists) {
     var credentials = {
       key: fs.readFileSync('SSL/server.key'),
