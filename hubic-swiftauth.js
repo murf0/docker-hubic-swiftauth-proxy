@@ -9,10 +9,21 @@ var fs = require('fs'),
     url = require('url'),
     querystring = require('querystring');
 
-var credentials = {
-  key: fs.readFileSync('SSL/server.key'),
-  cert: fs.readFileSync('SSL/server.crt')
-};
+
+//Ugly. I hate myself
+fs.exists("SSL", function(exists) {
+  if (exists) {
+    var credentials = {
+      key: fs.readFileSync('SSL/server.key'),
+      cert: fs.readFileSync('SSL/server.crt')
+    };
+  } else {
+    var credentials = {
+      key: fs.readFileSync('server.key'),
+      cert: fs.readFileSync('server.crt')
+    };
+  }
+});
 
 if (typeof(process.env.APP_KEY) == 'undefined' ||
     typeof(process.env.APP_SECRET) == 'undefined' ||
