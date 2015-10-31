@@ -11,21 +11,20 @@ var fs = require('fs'),
 
 
 //Ugly. I hate myself
-fs.exists("SSL/server.key", function(exists) {
-  if (exists) {
-    var credentials = {
-      key: fs.readFileSync('SSL/server.key'),
-      cert: fs.readFileSync('SSL/server.crt')
-    };
-    console.log("Using Provided SSL\n");
-  } else {
-    var credentials = {
-      key: fs.readFileSync('server.key'),
-      cert: fs.readFileSync('server.crt')
-    };
-    console.log("Using Generated SSL\n");
-  }
-});
+try {
+  var credentials = {
+    key: fs.readFileSync('SSL/server.key'),
+    cert: fs.readFileSync('SSL/server.crt')
+  };
+  console.log("Using Provided SSL\n");
+} catch (e) {
+  var credentials = {
+    key: fs.readFileSync('server.key'),
+    cert: fs.readFileSync('server.crt')
+  };
+  console.log("Using Generated SSL\n");
+}
+
 
 if (typeof(process.env.APP_KEY) == 'undefined' ||
     typeof(process.env.APP_SECRET) == 'undefined' ||
