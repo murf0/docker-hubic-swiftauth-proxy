@@ -23,6 +23,7 @@ if (typeof(process.env.APP_KEY) == 'undefined' ||
 console.log("APP_KEY: " + process.env.APP_KEY + "\n");
 console.log("APP_SECRET: " + process.env.APP_SECRET + "\n");
 console.log("BASE_URL: " + process.env.BASE_URL + "\n");
+console.log("HTTP: " + process.env.HTTP + "\n");
 
 var cache = {};
 var httpListener = function (req, res) {
@@ -183,8 +184,10 @@ var httpListener = function (req, res) {
 
 if (process.env.HTTP == "true") {
 	var srv = http.createServer(httpListener);
+  console.log("Set to HTTP");
 } else {
 	var srv = https.createServer(credentials,httpListener);
+  console.log("Set to HTTPS");
 }
 srv.listen(process.env.PORT || 8080);
 console.log("Started")
