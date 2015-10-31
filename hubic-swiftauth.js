@@ -20,7 +20,9 @@ if (typeof(process.env.APP_KEY) == 'undefined' ||
   console.error('Please use APP_KEY, APP_SECRET and BASE_URL env variables');
   process.exit(1);
 }
-
+console.log("APP_KEY" + process.env.APP_KEY + "\n");
+console.log("APP_SECRET" + process.env.APP_SECRET + "\n");
+console.log("BASE_URL" + process.env.BASE_URL + "\n");
 var cache = {};
 var httpListener = function (req, res) {
   "use strict";
