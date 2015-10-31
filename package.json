@@ -1,6 +1,6 @@
 {
   "name": "hubic-swiftauth",
-  "description": "A qucik written and simple Node.js HTTP server providing standard OpenStack Swift authentication for hubiC by OVH",
+  "description": "A quick and simple Node.js HTTPs server providing standard OpenStack Swift authentication for hubiC by OVH",
   "author": "Murf Mellgren <mikael@murf.se>",
   "license": "MIT",
   "version": "0.3.0",

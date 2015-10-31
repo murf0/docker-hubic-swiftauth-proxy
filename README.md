@@ -21,6 +21,7 @@ docker run\
 -e APP_KEY=<Client ID>\
 -e APP_SECRET=<Secret Client> \
 -e BASE_URL=<Redirection domain>/ \
+-e HTTPS=TRUE \
 -p <PORT In BASE_URL>:8080 \
 --name hubicswiftauth hubicswiftproxy
 ```
