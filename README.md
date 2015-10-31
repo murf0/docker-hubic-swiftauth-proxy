@@ -26,6 +26,12 @@ docker run\
 --name hubicswiftauth hubicswiftproxy
 ```
 
+### SSL
+If you wish to override the generated SSL-certificate mount a volume on /usr/
+```
+-v "<path to server.key & server.crt>:/usr/src/app/SSL/"
+```
+
 ## Usage
 
 *  Create a hubiC application on hubic.com (My account > Your applications).

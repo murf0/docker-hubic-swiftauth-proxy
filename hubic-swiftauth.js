@@ -8,10 +8,10 @@ var fs = require('fs'),
     https = require('https'),
     url = require('url'),
     querystring = require('querystring');
-    
+
 var credentials = {
-  key: fs.readFileSync('server.key'),
-  cert: fs.readFileSync('server.crt')
+  key: fs.readFileSync('SSL/server.key'),
+  cert: fs.readFileSync('SSL/server.crt')
 };
 
 if (typeof(process.env.APP_KEY) == 'undefined' ||
